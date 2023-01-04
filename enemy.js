@@ -9,8 +9,8 @@ class Enemy{
         frameX,
         frameY,
         speed,
-        moving
-        //src?
+        moving,
+        sprite
     ){
         this.x = x;
         this.y = y;
@@ -20,13 +20,19 @@ class Enemy{
         this.frameY = frameY;
         this.speed = speed;
         this.moving = moving;
+        this.sprite = sprite;
     };
-    // drawSprite(EnemySprite, width, height, frameX, frameY, speed, moving);
+    drawEnemy(){
+        drawSprite(this.sprite, this.width * this.frameX, this.height * this.frameY, this.width, this.height, this.x, this.y, this.width, this.height);
+    };
 };
 
 const EnemySprite = new Image();
-EnemySprite.src = `src/hero/Enemy 17-5.png`
+EnemySprite.src = `src/hero/Enemy 17-5.png`;
 
+// //Erstelle neuen Enemy
+// const enemy = new Enemy(700, 700, 32, 32, 0, 1, 5, false, EnemySprite);
+// console.log(enemy);
 
 
 //Array für die vorhandenen Gegner
@@ -34,16 +40,19 @@ const enemies = [];
 
 function spawnEnemies(){
     setInterval(() => {
-        const x = 100;
-        const y = 100;
+        //x und y bei jedem Aufruf random ändern
+        //const x = Math.floor(Math.random() * (1400 - 1) + 1);
+        const y = Math.floor(Math.random() * (1400 - 1) + 1);
+        // const y = 700;
+        const x = 700;
         const width = 32;
         const height = 32;
         const frameX = 0;
-        const frameY = 0;
+        const frameY = 1;
         const speed = 5;
-        const moving = true;
-        // const sry = random
-        enemies.push(new Enemy(x, y, width, height, frameX, frameY, speed, moving));
+        const moving = false;
+        const sprite = EnemySprite;
+        enemies.push(new Enemy(x, y, width, height, frameX, frameY, speed, moving, sprite));
         console.log(enemies)
     }, 1000);
 };
