@@ -61,7 +61,7 @@ const background = new Image();
 
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
-    console.log(`drawSprite aufgerufen`);
+    // console.log(`drawSprite aufgerufen`);
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 };
 
@@ -100,9 +100,12 @@ function animate(){
         player.drawPlayer();
         player.movePlayer();
         player.changePlayerFrame();
+
+        //enemies[0].drawEnemy();
+        enemies.forEach(en => en.drawEnemy());
         requestAnimationFrame(animate);
     };
 };
 
 startAnimating(1000);
-// spawnEnemies();
+spawnEnemies();
