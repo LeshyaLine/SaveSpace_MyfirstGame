@@ -25,6 +25,9 @@ class Enemy{
     drawEnemy(){
         drawSprite(this.sprite, this.width * this.frameX, this.height * this.frameY, this.width, this.height, this.x, this.y, this.width, this.height);
     };
+    moveEnemy(){
+        this.x -= this.speed;
+    };
 };
 
 const EnemySprite = new Image();
@@ -41,15 +44,14 @@ const enemies = [];
 function spawnEnemies(){
     setInterval(() => {
         //x und y bei jedem Aufruf random ändern
-        //const x = Math.floor(Math.random() * (1400 - 1) + 1);
-        const y = Math.floor(Math.random() * (1400 - 1) + 1);
-        // const y = 700;
-        const x = 700;
+        const y = Math.floor(Math.random() * (1400 - 100) + 100);
+        //Später noch außerhalb des Canvas, damit sie reinlaufen
+        const x = 1000;
         const width = 32;
         const height = 32;
         const frameX = 0;
         const frameY = 1;
-        const speed = 5;
+        const speed = 1;
         const moving = false;
         const sprite = EnemySprite;
         enemies.push(new Enemy(x, y, width, height, frameX, frameY, speed, moving, sprite));
@@ -57,5 +59,4 @@ function spawnEnemies(){
     }, 1000);
 };
 
-//enemies.forEach(n => n.drawSprite);
 

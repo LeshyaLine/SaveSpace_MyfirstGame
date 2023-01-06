@@ -48,20 +48,36 @@ class Player {
         if(this.frameX < 3 && this.moving) this.frameX++;
         else this.frameX = 0;
     };
+
+    collisionWithEnemy(){
+        for(let i = 0; i <= enemies.length; i++){
+        if(player.x < enemies[i].x + enemies[i].width &&
+            player.x + player.height > enemies[i].x &&
+            player.y < enemies[i].y + enemies[i].height &&
+            player.y + player.height > enemies[i].y
+            )
+            {
+                console.log(`boom`);                
+                //BoomAnimation einfügen und Sound?
+                //getroffenes enemyelement aus array löschen
+                enemies.splice(i,1);
+            };
+        };
+        //const playerHitBox = {this.x, this.y, player.width, player.height};
+    }
 };
 
 const playerSprite = new Image();
 playerSprite.src = `src/hero/Enemy 15-5.png`;
 
 //erstelle neuen Spieler(Instanz der Klasse Player)
-const player = new Player(500, 500, 32, 32, 0, 1, 5, false, playerSprite);
+const player = new Player(500, 500, 32, 32, 0, 1, 4, false, playerSprite);
 console.log(player);
 
 const background = new Image();
 
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
-    // console.log(`drawSprite aufgerufen`);
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 };
 
@@ -90,22 +106,37 @@ function startAnimating(fps){
 }
 
 function animate(){
-    requestAnimationFrame(animate);
+    window.requestAnimationFrame(animate);
     now = Date.now();
     elapsed = now - then;
     if(elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
+
+        //Damit die bewegten Objekte keine "spuren" ziehen.
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         player.drawPlayer();
         player.movePlayer();
         player.changePlayerFrame();
 
-        //enemies[0].drawEnemy();
         enemies.forEach(en => en.drawEnemy());
-        requestAnimationFrame(animate);
+        enemies.forEach(en => en.moveEnemy());
+
+        player.collisionWithEnemy();
+        window.requestAnimationFrame(animate);
     };
 };
 
-startAnimating(1000);
+startAnimating(60);
 spawnEnemies();
+
+//KOLLISION
+//Wenn x und y + Player. height und player.width = x und y von Enemy
+//dann delete enemy, wo x und y = Player width und palyer hight aus dem array
+//Am ende: Animation Boom, tot!
+// var playerHitbox = {};
+// var enemyHitbox = ;
+// if(player.x === e){
+//     enemies.
+// }
+//enemies.forEach(n => n.drawSprite);
