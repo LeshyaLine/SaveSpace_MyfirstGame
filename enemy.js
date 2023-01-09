@@ -58,5 +58,3 @@ function spawnEnemies(){
         console.log(enemies)
     }, 1000);
 };
-
-
