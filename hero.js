@@ -57,24 +57,6 @@ class Hero{
         if(this.frameX < 1 && this.moving) this.frameX++;
         else this.frameX = 0;
     };
-
-    //     collisionWithEnemy(){
-//         for(let i = 0; i <= enemies.length; i++){
-//         if(player.x < enemies[i].x + enemies[i].width &&
-//             player.x + player.height > enemies[i].x &&
-//             player.y < enemies[i].y + enemies[i].height &&
-//             player.y + player.height > enemies[i].y
-//             )
-//             {
-//                 console.log(`boom`);                
-//                 //BoomAnimation einfügen und Sound?
-//                 //getroffenes enemyelement aus array löschen
-//                 enemies.splice(i,1);
-//             };
-//         };
-//         //const playerHitBox = {this.x, this.y, player.width, player.height};
-//     }
-// };
 };
 
 const heroSprite = new Image();

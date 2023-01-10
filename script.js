@@ -30,7 +30,6 @@ window.addEventListener(`keyup`, function(e){
     hero.moving = false;
 });
 
-
 let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps){
@@ -39,7 +38,6 @@ function startAnimating(fps){
     then = Date.now();
     startTime = then;
     animate();
-    // collisionDetection();
 }
 
 function animate(){
@@ -66,25 +64,15 @@ function animate(){
 
         //player.collisionWithEnemy();
 
+
         settler.forEach(en => en.drawSettler());
         settler.forEach(en => en.moveSettler());
         //settler.forEach(en => en.changeSettlerFrame());
 
+
         window.requestAnimationFrame(animate);
     };
 };
-
-// function collisionDetection(){
-//     for(let i = 0; i <= enemies.length; i++){
-//         if(hero.x > enemies[i].x + enemies[i].width ||
-//             hero.x + hero.width < enemies[i].x ||
-//             hero.y > enemies[i].y + enemies[i].height ||
-//             hero.y + hero.height < enemies[i].y
-//             ){
-//             console.log(`nothing`);
-//         }else console.log(`BOOOOOM`);
-//     };
-// }
 
 spawnEnemies();
 spawnSettler();
