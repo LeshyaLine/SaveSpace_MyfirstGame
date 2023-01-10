@@ -9,3 +9,18 @@ MAYBE TO DO'S:
 -Attacken?
 -Pause-Button?
 -Wann Spiel gewonnen/verloren? endlos?
+
+-Sprites per ... einbauen:
+
+    // // 1 - 25
+    // const oneTwentyFive = ath.floor(Math.random() * 25);
+
+    // // 1  - 5
+    // const oneFive = ath.floor(Math.random() * 5);
+
+    // const settlerSprites = [
+    //     `src/settler/Female ${oneTwentyFive}-${oneFive}.png`,
+    //     `src/settler/Male ${oneTwentyFive}-${oneFive}.png`,
+    // ]
+
+-ID`s einbauen bei Enemies und Settler

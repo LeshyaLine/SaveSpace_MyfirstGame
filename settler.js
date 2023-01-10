@@ -197,6 +197,5 @@ function spawnSettler (){
         const sprite = new Image();
         sprite.src = settlerSprites[Math.floor(Math.random() * settlerSprites.length)];
         settler.push(new Settler(x, y, width, height, frameX, frameY, speed, moving, sprite));
-        console.log(settler);
     }, 1000);
 }; 
