@@ -41,6 +41,20 @@ class Enemy{
     //     if(this.frameX < 1 && this.moving) this.frameX++;
     //     else this.frameX = 0;
     // };
+
+    // collisionWithHero(){
+    //     if(
+    //         hero.x > this.x + this.width ||
+    //         hero.x + hero.width < this.x ||
+    //         hero.y > this.y + this.height ||
+    //         hero.y + hero.height < this.y
+    //     ){
+    //         console.log(`no boom`);
+    //     }else{
+        //Wie lösche ich den einzelnen Gegner jetzt?
+    //         console.log(`BOOOOOM`);
+    //     };
+    // };
 };
 
 const EnemySprite = new Image();

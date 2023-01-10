@@ -48,7 +48,7 @@ const settler = [];
 const settlerSprites = [
     "src/settler/Female 01-1.png",
     "src/settler/Female 01-2.png", 
-    "Female 01-3.png",
+    "src/settler/Female 01-3.png",
     "src/settler/Female 01-4.png", 
     "src/settler/Female 02-1.png", 
     "src/settler/Female 02-2.png", 

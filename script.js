@@ -7,6 +7,9 @@ canvas.height = 1000;
 //werden gelöscht, sobald die Taste weider losgelassen wird
 const keys = [];
 
+const audioMusic = new Audio(`src/Heroic Demise (New).mp3`);
+const audioDisappearEnemy = new Audio(`src/erase.wav`);
+
 const background = new Image();
 
 
@@ -36,10 +39,14 @@ function startAnimating(fps){
     then = Date.now();
     startTime = then;
     animate();
+    // collisionDetection();
 }
 
 function animate(){
     window.requestAnimationFrame(animate);
+    
+    //audioMusic.play();
+    
     now = Date.now();
     elapsed = now - then;
     if(elapsed > fpsInterval) {
@@ -54,6 +61,7 @@ function animate(){
 
         enemies.forEach(en => en.drawEnemy());
         enemies.forEach(en => en.moveEnemy());
+        //enemies.forEach(en => en.collisionWithHero());
         //enemies.forEach(en => en.changeEnemyFrame());
 
         //player.collisionWithEnemy();
@@ -65,6 +73,18 @@ function animate(){
         window.requestAnimationFrame(animate);
     };
 };
+
+// function collisionDetection(){
+//     for(let i = 0; i <= enemies.length; i++){
+//         if(hero.x > enemies[i].x + enemies[i].width ||
+//             hero.x + hero.width < enemies[i].x ||
+//             hero.y > enemies[i].y + enemies[i].height ||
+//             hero.y + hero.height < enemies[i].y
+//             ){
+//             console.log(`nothing`);
+//         }else console.log(`BOOOOOM`);
+//     };
+// }
 
 spawnEnemies();
 spawnSettler();
