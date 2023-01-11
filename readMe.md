@@ -1,7 +1,8 @@
 MAYBE TO DO'S:
 -Farbwahl des Charakters
 -Anzeige, wie viele ins Dorf gekommen sind, wie viele wir getötet haben und wie viele wir verloren haben
--Animation bei Kollision
+-Animation und Sound bei Kollision/Disappear einbauen: in Klasse direkt
+-Bewegungsanimation von den Siedlern
 -Hintergrundmusik https://opengameart.org
 -ThemWahl bevor das Game lädt(Mittelalter, Weltraum, Schnee usw.)
 
@@ -23,4 +24,4 @@ MAYBE TO DO'S:
     //     `src/settler/Male ${oneTwentyFive}-${oneFive}.png`,
     // ]
 
--ID`s einbauen bei Enemies und Settler
+-explosions.length als Highscore? bzw getötete Einheiten oben anzeigen

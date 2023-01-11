@@ -7,9 +7,6 @@ canvas.height = 1000;
 //werden gelöscht, sobald die Taste weider losgelassen wird
 const keys = [];
 
-const audioMusic = new Audio(`src/Heroic Demise (New).mp3`);
-const audioDisappearEnemy = new Audio(`src/erase.wav`);
-
 const background = new Image();
 
 
@@ -41,8 +38,7 @@ function startAnimating(fps){
 }
 
 function animate(){
-    window.requestAnimationFrame(animate);
-    
+
     //audioMusic.play();
     
     now = Date.now();
@@ -65,9 +61,11 @@ function animate(){
         settler.forEach(en => en.moveSettler());
         //settler.forEach(en => en.changeSettlerFrame());
 
-
-        window.requestAnimationFrame(animate);
+        explosions.forEach(ex => ex.update());
+        explosions.forEach(ex => ex.draw());
     };
+
+    window.requestAnimationFrame(animate);
 };
 
 spawnEnemies();

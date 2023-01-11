@@ -46,8 +46,11 @@ class Enemy{
             hero.height + hero.y > this.y
         ){
             console.log(`BOOM`);
-            enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);
-            
+            enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);            
+
+            //für jeden getroffenen Gegner wird eine Instanz der Klasse
+            //Explosion dem Array explosions hinzugefügt
+            explosions.push(new Explosion(this.x, this.y));
 
             //sound
             audioDisappearEnemy.play();

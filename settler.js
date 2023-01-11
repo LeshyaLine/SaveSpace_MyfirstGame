@@ -35,7 +35,10 @@ class Settler{
         if(this.y > 300){
             this.y -= this.speed;
             this.moving = true;
-        }else settler.splice(0,1);    
+        }else{
+            audioSettlerDisappear.play();
+            settler.splice(0,1);   
+        };
     };
     changeSettlerFrame(){
         if(this.frameX < 3 && this.moving) this.frameX++;
