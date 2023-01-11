@@ -13,8 +13,11 @@ class Explosion{
         this.image.src = `src/enemy/boom.png`;
         this.frame = 0;
         this.timer = 0;
+        this.sound = new Audio();
+        this.sound.src = `src/sounds/erase.wav`;
     };
     update(){
+        if(this.frame === 0) this.sound.play();
         this.timer++;
         if(this.timer % 10 ===0){
             this.frame++;

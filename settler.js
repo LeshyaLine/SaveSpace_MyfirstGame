@@ -9,6 +9,7 @@ class Settler{
         speed,
         moving,
         sprite,
+        //timer,
     ){
         this.x = x;
         this.y = y;
@@ -19,6 +20,7 @@ class Settler{
         this.speed = speed;
         this.moving = moving;
         this.sprite = sprite;
+        //this.timer = timer
     };
     drawSettler(){
         drawSprite(this.sprite,
@@ -41,8 +43,19 @@ class Settler{
         };
     };
     changeSettlerFrame(){
-        if(this.frameX < 3 && this.moving) this.frameX++;
-        else this.frameX = 0;
+        // //if(this.frameX === 0 && this.moving){
+        //     this.timmer++;
+        // //}
+        // if(this.timer % 10 === 0){
+        //     this.frameX++;
+        // }
+        // if(this.frameX < 3 && this.moving){
+        //     this.frameX++;
+        // }else this.frameX = 0;
+        // this.timer++;
+        // if(this.timer % 10 === 0){
+        //     this.frameX++
+        // }
     }
 };
 
@@ -196,8 +209,9 @@ function spawnSettler (){
         const frameX = 0;
         const frameY = 3;
         const speed = 1;
-        const moving = false;
+        const moving = true;
         const sprite = new Image();
+        //const timer = 0;
         sprite.src = settlerSprites[Math.floor(Math.random() * settlerSprites.length)];
         settler.push(new Settler(x, y, width, height, frameX, frameY, speed, moving, sprite));
     }, 1000);

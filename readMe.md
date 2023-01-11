@@ -25,3 +25,5 @@ MAYBE TO DO'S:
     // ]
 
 -explosions.length als Highscore? bzw getötete Einheiten oben anzeigen
+
+-GrößenUnterschiede in unterschiedlichen Browsern fixen

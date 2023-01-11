@@ -1,5 +1,4 @@
 const audioMusic = new Audio(`src/sounds/Heroic Demise (New).mp3`);
-const audioDisappearEnemy = new Audio(`src/sounds/erase.wav`);
 const audioSettlerDisappear = new Audio(`src/sounds/power up.ogg`);
 
 
