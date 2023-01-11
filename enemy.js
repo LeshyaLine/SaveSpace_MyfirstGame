@@ -1,6 +1,6 @@
 class Enemy{
     constructor(
-        // id,
+        id_enemy,
         x,
         y,
         width,
@@ -11,6 +11,7 @@ class Enemy{
         moving,
         sprite
     ){
+        this.id_enemy = id_enemy;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -22,7 +23,8 @@ class Enemy{
         this.sprite = sprite;
     };
     drawEnemy(){
-        drawSprite(this.sprite,
+        drawSprite(
+            this.sprite,
              this.width * this.frameX,
              this.height * this.frameY,
              this.width,
@@ -43,18 +45,13 @@ class Enemy{
             hero.y < this.y + this.height &&
             hero.height + hero.y > this.y
         ){
-            console.log(`Collision detected!`);
-            //delete where enemy x = hero x und y 0 hero y
-            // console.log(enemies.indexOf(enemy));
-            // console.log(this);
-            // console.log(indexOf(this))
-            // // console.log(enemies.indexOf(en => en.y === hero.y)); 
-            // console.log(enemies.filter(enemy => enemy.id === this.id))         
-            //enemies.splice(enemies[this],1);
+            console.log(`BOOM`);
+            enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);
+            
 
             //sound
-            // audioDisappearEnemy.play();
-        }
+            audioDisappearEnemy.play();
+        };
     };
 
     // changeEnemyFrame(){
@@ -66,11 +63,13 @@ class Enemy{
 const EnemySprite = new Image();
 EnemySprite.src = `src/enemy/Enemy 17-5.png`;
 
-//Array für die vorhandenen Gegner
-const enemies = [];
+//Array für die vorhandenen Gegner muss let sein, da wir es überschreiben
+//in MoveEnemy
+let enemies = [];
 
 function spawnEnemies(){
     setInterval(() => {
+        const id = new Date()
         const y = Math.floor(Math.random() * (1400 - 100) + 100);
         const x = 1000;
         const width = 32;
@@ -80,6 +79,6 @@ function spawnEnemies(){
         const speed = 1;
         const moving = false;
         const sprite = EnemySprite;
-        enemies.push(new Enemy(x, y, width, height, frameX, frameY, speed, moving, sprite));
+        enemies.push(new Enemy(id, x, y, width, height, frameX, frameY, speed, moving, sprite));
     }, 1000);
 };

@@ -13,8 +13,8 @@ const audioDisappearEnemy = new Audio(`src/erase.wav`);
 const background = new Image();
 
 
-function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+function drawSprite(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH){
+    ctx.drawImage(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH);
 };
 
 //Wenn ein key gedrückt wird, wird er zum Array keys hinzugefügt
@@ -59,11 +59,7 @@ function animate(){
 
         enemies.forEach(en => en.drawEnemy());
         enemies.forEach(en => en.moveEnemy());
-        //enemies.forEach(en => en.collisionWithHero());
         //enemies.forEach(en => en.changeEnemyFrame());
-
-        //player.collisionWithEnemy();
-
 
         settler.forEach(en => en.drawSettler());
         settler.forEach(en => en.moveSettler());
@@ -77,15 +73,3 @@ function animate(){
 spawnEnemies();
 spawnSettler();
 startAnimating(60);
-
-
-//KOLLISION
-//Wenn x und y + Player. height und player.width = x und y von Enemy
-//dann delete enemy, wo x und y = Player width und palyer hight aus dem array
-//Am ende: Animation Boom, tot!
-// var playerHitbox = {};
-// var enemyHitbox = ;
-// if(player.x === e){
-//     enemies.
-// }
-//enemies.forEach(n => n.drawSprite);
