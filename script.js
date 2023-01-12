@@ -55,7 +55,8 @@ function animate(timestamp){
     timeToNext += deltatime;
     // console.log(deltatime);
     
-    audioMusic.play();
+    //audioMusic.play();
+    
     hero.drawHero();
     hero.moveHero();
     hero.changeHeroFrame();

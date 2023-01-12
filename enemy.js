@@ -25,14 +25,14 @@ class Enemy{
     drawEnemy(){
         drawSprite(
             this.sprite,
-             this.width * this.frameX,
-             this.height * this.frameY,
-             this.width,
-             this.height,
-             this.x,
-             this.y,
-             this.width,
-             this.height);
+            this.width * this.frameX,
+            this.height * this.frameY,
+            this.width,
+            this.height,
+            this.x,
+            this.y,
+            this.width,
+            this.height);
     };
     moveEnemy(){
         if(this.x > 1){
@@ -45,7 +45,6 @@ class Enemy{
             hero.y < this.y + this.height &&
             hero.height + hero.y > this.y
         ){
-            console.log(`BOOM`);
             enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);            
 
             //für jeden getroffenen Gegner wird eine Instanz der Klasse

@@ -1,5 +1,6 @@
 class Settler{
     constructor(
+        id_settler,
         x,
         y,
         width,
@@ -9,8 +10,8 @@ class Settler{
         speed,
         moving,
         sprite,
-        //timer,
     ){
+        this.id_settler = id_settler;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -20,20 +21,34 @@ class Settler{
         this.speed = speed;
         this.moving = moving;
         this.sprite = sprite;
-        //this.timer = timer
     };
     drawSettler(){
-        drawSprite(this.sprite,
-             this.width * this.frameX,
-             this.height * this.frameY,
-             this.width,
-             this.height,
-             this.x,
-             this.y,
-             this.width,
-             this.height);
+        drawSprite(
+            this.sprite,
+            this.width * this.frameX,
+            this.height * this.frameY,
+            this.width,
+            this.height,
+            this.x,
+            this.y,
+            this.width,
+            this.height);
     };
     moveSettler(){
+        for(let i = 0; i < enemies.length; i++){
+        if(
+            this.x < enemies[i].x + enemies[i].width &&
+            this.x + this.width > enemies[i].x &&
+            this.y < enemies[i].y + enemies[i].height &&
+            this.height + this.y > enemies[i].y
+            ){
+                settler = settler.filter(se => se.id_settler != this.id_settler);
+                
+                SettlerDeath.play();
+            };
+        };
+
+
         if(this.y < 310 && this.y > 300){
             this.frameY = 0; 
             this.y -= this.speed;
@@ -46,7 +61,7 @@ class Settler{
             settler.splice(0,1);   
         };
     };
-    changeSettlerFrame(){
+    //changeSettlerFrame(){
         // //if(this.frameX === 0 && this.moving){
         //     this.timmer++;
         // //}
@@ -60,11 +75,12 @@ class Settler{
         // if(this.timer % 10 === 0){
         //     this.frameX++
         // }
-    }
+    //}
 };
 
-//Array für die vorhandenen Siedler
-const settler = [];
+//Array für die vorhandenen Siedler muss let sein, da ich es später
+//durch .filter überschreibe
+let settler = [];
 const settlerSprites = [
     "src/settler/Female 01-1.png",
     "src/settler/Female 01-2.png", 
@@ -206,6 +222,7 @@ const settlerSprites = [
 
 function spawnSettler (){
     setInterval(() => {
+        const id = new Date();
         const y = 1000;
         const x = Math.floor(Math.random() * (270 - 0) + 0);
         const width = 32;
@@ -215,8 +232,7 @@ function spawnSettler (){
         const speed = 1;
         const moving = true;
         const sprite = new Image();
-        //const timer = 0;
         sprite.src = settlerSprites[Math.floor(Math.random() * settlerSprites.length)];
-        settler.push(new Settler(x, y, width, height, frameX, frameY, speed, moving, sprite));
+        settler.push(new Settler(id, x, y, width, height, frameX, frameY, speed, moving, sprite));
     }, 1000);
 }; 

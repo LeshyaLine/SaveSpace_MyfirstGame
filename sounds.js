@@ -1,6 +1,6 @@
 const audioMusic = new Audio(`src/sounds/Heroic Demise (New).mp3`);
 const audioSettlerDisappear = new Audio(`src/sounds/power up.ogg`);
-
+const SettlerDeath = new Audio(`src/sounds/Goblin Death.wav`);
 
 
 
