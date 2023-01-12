@@ -35,10 +35,17 @@ class Enemy{
             this.height);
     };
     moveEnemy(){
+
         if(this.x > 1){
                 this.x -= this.speed;
                 this.moving = true;
-        }else enemies.splice(0,1);
+        }else{
+            enemies.splice(0,1);
+        };
+        if(this.x < 280 && this.y < 300){
+            enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);
+        };
+
         if(
             hero.x < this.x + this.width &&
             hero.x + hero.width > this.x &&

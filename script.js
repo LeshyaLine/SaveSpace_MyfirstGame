@@ -16,15 +16,41 @@ let SpawnIntervall = 500;
 // getötete Gegner
 let score = 0;
 
-ctx.font = `bold 40px serif`;
+// getötete Siedler
+let settlerDeaths = 0;
+
+//gerettete Siedler
+let settlerSaves = 0;
+
 const background = new Image();
 
 
 const drawScore = () => {
-    console.log(score);
+    ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
     ctx.fillText(`Score: ` + score, 800, 120);
+    ctx.font = `bold 40px serif`;
+    ctx.fillStyle = `white`;
+    ctx.fillText(`Score: ` + score, 805, 122);
 }
+
+const drawSettlerDeaths = () => {
+    ctx.font = `bold 40px serif`;
+    ctx.fillStyle = `black`;
+    ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 10, 100);    ctx.font = `40px serif`;
+    ctx.font = `bold 40px serif`;
+    ctx.fillStyle = `white`;
+    ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 15, 102);
+};
+
+const drawSettlerSaves = () => {
+    ctx.font = `bold 40px serif`;
+    ctx.fillStyle = `black`;
+    ctx.fillText(`gerettete Siedler: ` + settlerSaves, 10, 50);    ctx.font = `40px serif`;
+    ctx.font = `bold 40px serif`;
+    ctx.fillStyle = `white`;
+    ctx.fillText(`gerettete Siedler: ` + settlerSaves, 15, 52);
+};
 
 function drawSprite(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -53,7 +79,6 @@ function animate(timestamp){
     let deltatime = timestamp - lasttime;
     lasttime = timestamp;   
     timeToNext += deltatime;
-    // console.log(deltatime);
     
     // audioMusic.play();
     
@@ -73,7 +98,13 @@ function animate(timestamp){
     enemySettlerCollision.forEach(ex => ex.update());
     enemySettlerCollision.forEach(ex => ex.draw());
 
+    //function für die getöteten Gegner
     drawScore();
+    //function für die getöteten Spieler
+    drawSettlerDeaths();
+
+    //function fir die geretteten Siedler
+    drawSettlerSaves();
 
     window.requestAnimationFrame(animate);
 };

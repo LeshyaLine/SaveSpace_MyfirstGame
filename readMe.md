@@ -2,9 +2,7 @@ MAYBE TO DO'S:
 -Farbwahl des Charakters
 -Anzeige, wie viele ins Dorf gekommen sind, wie viele wir getötet haben und wie viele wir verloren haben
 
--wenn Hero siedler berührt, laufen sie schneller und Sound kommt
 -neuer Hero?
--Kollision Siedler/Enemy
 
 -Wenn Enemys in der Nähe von Siedlern sind, y anpassen, damit sie mit Siedler kollidieren
 
@@ -38,13 +36,18 @@ MAYBE TO DO'S:
     //     `src/settler/Male ${oneTwentyFive}-${oneFive}.png`,
     // ]
 
--explosions.length als Highscore? bzw getötete Einheiten oben anzeigen
 -Explosion löschen, wenn Frames alle durchlaufen sind - Performance
 
 DONE!!!!
 11.01.2023:
 -GrößenUnterschiede in unterschiedlichen Browsern fixen
+-bei Kollision Enemy aus array löschen
+
 12.01.2023:
 -Wenn Sieder im Dorf sind, umdrehen und von vorne zeigen
 -Animation und Sound bei Kollision/Disappear einbauen: in Klasse direkt
 -Bewegungsanimation von den Siedlern
+-Kollision Siedler/Enemy
+-Highscore? bzw getötete Einheiten oben anzeigen
+-SpeedBuff: wenn Hero Siedler berührt, laufen sie schneller und Sound kommt
+-Gegner verschwinden am Gebirge, damit sie nicht durchs Dorf laufen

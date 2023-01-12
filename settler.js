@@ -43,6 +43,7 @@ class Settler{
             this.y < enemies[i].y + enemies[i].height &&
             this.height + this.y > enemies[i].y
             ){
+                settlerDeaths++;
                 settler = settler.filter(se => se.id_settler != this.id_settler);
                 enemySettlerCollision.push(new EnemySettlerCollision(this.x, this.y));
             };
@@ -67,6 +68,7 @@ class Settler{
             this.y -= this.speed;
             this.moving = true;
         }else{
+            settlerSaves++;
             settler.splice(0,1);   
         };
     };
