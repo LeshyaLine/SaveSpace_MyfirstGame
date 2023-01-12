@@ -18,7 +18,6 @@ class EnemySettlerCollision{
         this.sound.src = `src/sounds/Goblin Death.wav`;
     };
     update(){
-        console.log(enemySettlerCollision);
         this.timer++;
         if(this.timer % 5 === 0){
             if(this.frameX < 3){

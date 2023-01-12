@@ -46,6 +46,16 @@ class Settler{
                 settler = settler.filter(se => se.id_settler != this.id_settler);
                 enemySettlerCollision.push(new EnemySettlerCollision(this.x, this.y));
             };
+        if(
+            this.x < hero.x + hero.width &&
+            this.x + this.width > hero.x &&
+            this.y < hero.y + hero.height &&
+            this.height + this.y > hero.y
+        ){
+            this.speed = 3;
+            SettlerSpeedBuff.play();
+        }
+        
         };
 
 

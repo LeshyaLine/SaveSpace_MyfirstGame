@@ -2,7 +2,6 @@ MAYBE TO DO'S:
 -Farbwahl des Charakters
 -Anzeige, wie viele ins Dorf gekommen sind, wie viele wir getötet haben und wie viele wir verloren haben
 
--Bewegungsanimation von den Siedlern
 -wenn Hero siedler berührt, laufen sie schneller und Sound kommt
 -neuer Hero?
 -Kollision Siedler/Enemy
@@ -40,9 +39,12 @@ MAYBE TO DO'S:
     // ]
 
 -explosions.length als Highscore? bzw getötete Einheiten oben anzeigen
--Explosion löschen, wenn Frames alle durchlaufen sind.
+-Explosion löschen, wenn Frames alle durchlaufen sind - Performance
 
 DONE!!!!
+11.01.2023:
 -GrößenUnterschiede in unterschiedlichen Browsern fixen
+12.01.2023:
 -Wenn Sieder im Dorf sind, umdrehen und von vorne zeigen
 -Animation und Sound bei Kollision/Disappear einbauen: in Klasse direkt
+-Bewegungsanimation von den Siedlern

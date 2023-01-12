@@ -1,5 +1,6 @@
 const canvas = document.querySelector(`canvas`);
 const ctx = canvas.getContext(`2d`);
+
 canvas.width = 1000;
 canvas.height = 1000;
 
@@ -12,9 +13,18 @@ let lasttime = 0;
 let timeToNext = 0;
 let SpawnIntervall = 500;
 
+// getötete Gegner
+let score = 0;
 
+ctx.font = `bold 40px serif`;
 const background = new Image();
 
+
+const drawScore = () => {
+    console.log(score);
+    ctx.fillStyle = `black`;
+    ctx.fillText(`Score: ` + score, 800, 120);
+}
 
 function drawSprite(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -33,16 +43,6 @@ window.addEventListener(`keyup`, function(e){
     hero.moving = false;
 });
 
-// let fps, fpsInterval, startTime, now, then, elapsed;
-
-// function startAnimating(fps){
-//     //1 Sekunde hat 1000 Millisekunden
-//     fpsInterval = 1000/fps;
-//     then = Date.now();
-//     startTime = then;
-//     animate();
-// }
-
 function animate(timestamp){
 
 
@@ -55,7 +55,7 @@ function animate(timestamp){
     timeToNext += deltatime;
     // console.log(deltatime);
     
-    audioMusic.play();
+    // audioMusic.play();
     
     hero.drawHero();
     hero.moveHero();
@@ -66,12 +66,14 @@ function animate(timestamp){
     settler.forEach(en => en.drawSettler());
     settler.forEach(en => en.moveSettler());
     settler.forEach(en => en.changeSettlerFrame());
-    
+
     explosions.forEach(ex => ex.update());
     explosions.forEach(ex => ex.draw());
 
     enemySettlerCollision.forEach(ex => ex.update());
     enemySettlerCollision.forEach(ex => ex.draw());
+
+    drawScore();
 
     window.requestAnimationFrame(animate);
 };

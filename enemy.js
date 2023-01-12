@@ -50,6 +50,7 @@ class Enemy{
             //für jeden getroffenen Gegner wird eine Instanz der Klasse
             //Explosion dem Array explosions hinzugefügt
             explosions.push(new Explosion(this.x, this.y));
+            score++;
         };
     };
 
