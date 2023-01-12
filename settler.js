@@ -1,5 +1,6 @@
 class Settler{
     constructor(
+        id_settler,
         x,
         y,
         width,
@@ -10,6 +11,7 @@ class Settler{
         moving,
         sprite,
     ){
+        this.id_settler = id_settler;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -19,35 +21,70 @@ class Settler{
         this.speed = speed;
         this.moving = moving;
         this.sprite = sprite;
+        this.timer = 0;
     };
     drawSettler(){
-        drawSprite(this.sprite,
-             this.width * this.frameX,
-             this.height * this.frameY,
-             this.width,
-             this.height,
-             this.x,
-             this.y,
-             this.width,
-             this.height);
+        drawSprite(
+            this.sprite,
+            this.width * this.frameX,
+            this.height * this.frameY,
+            this.width,
+            this.height,
+            this.x,
+            this.y,
+            this.width,
+            this.height);
     };
     moveSettler(){
-        if(this.y > 300){
+        for(let i = 0; i < enemies.length; i++){
+        if(
+            this.x < enemies[i].x + enemies[i].width &&
+            this.x + this.width > enemies[i].x &&
+            this.y < enemies[i].y + enemies[i].height &&
+            this.height + this.y > enemies[i].y
+            ){
+                settler = settler.filter(se => se.id_settler != this.id_settler);
+                enemySettlerCollision.push(new EnemySettlerCollision(this.x, this.y));
+            };
+        if(
+            this.x < hero.x + hero.width &&
+            this.x + this.width > hero.x &&
+            this.y < hero.y + hero.height &&
+            this.height + this.y > hero.y
+        ){
+            this.speed = 3;
+            SettlerSpeedBuff.play();
+        }
+        
+        };
+
+
+        if(this.y < 310 && this.y > 300){
+            this.frameY = 0; 
+            this.y -= this.speed;
+            this.moving = true;
+        }else if(this.y > 300){
             this.y -= this.speed;
             this.moving = true;
         }else{
-            audioSettlerDisappear.play();
             settler.splice(0,1);   
         };
     };
     changeSettlerFrame(){
-        if(this.frameX < 3 && this.moving) this.frameX++;
-        else this.frameX = 0;
-    }
+        this.timer++
+        if(this.timer % 10 === 0){
+            if(this.frameX < 2){
+                this.frameX++;
+            }else{
+                this.frameX = 0;
+            };
+        };
+    };
 };
 
-//Array für die vorhandenen Siedler
-const settler = [];
+//Array für die vorhandenen Siedler muss let sein, da ich es später
+//durch .filter überschreibe
+let settler = [];
 const settlerSprites = [
     "src/settler/Female 01-1.png",
     "src/settler/Female 01-2.png", 
@@ -189,6 +226,7 @@ const settlerSprites = [
 
 function spawnSettler (){
     setInterval(() => {
+        const id = new Date();
         const y = 1000;
         const x = Math.floor(Math.random() * (270 - 0) + 0);
         const width = 32;
@@ -196,9 +234,9 @@ function spawnSettler (){
         const frameX = 0;
         const frameY = 3;
         const speed = 1;
-        const moving = false;
+        const moving = true;
         const sprite = new Image();
         sprite.src = settlerSprites[Math.floor(Math.random() * settlerSprites.length)];
-        settler.push(new Settler(x, y, width, height, frameX, frameY, speed, moving, sprite));
+        settler.push(new Settler(id, x, y, width, height, frameX, frameY, speed, moving, sprite));
     }, 1000);
 }; 

@@ -1,5 +1,6 @@
 const canvas = document.querySelector(`canvas`);
 const ctx = canvas.getContext(`2d`);
+
 canvas.width = 1000;
 canvas.height = 1000;
 
@@ -7,8 +8,23 @@ canvas.height = 1000;
 //werden gelöscht, sobald die Taste weider losgelassen wird
 const keys = [];
 
+//zum Speichern des Timestamps in der animate()
+let lasttime = 0;
+let timeToNext = 0;
+let SpawnIntervall = 500;
+
+// getötete Gegner
+let score = 0;
+
+ctx.font = `bold 40px serif`;
 const background = new Image();
 
+
+const drawScore = () => {
+    console.log(score);
+    ctx.fillStyle = `black`;
+    ctx.fillText(`Score: ` + score, 800, 120);
+}
 
 function drawSprite(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -27,47 +43,41 @@ window.addEventListener(`keyup`, function(e){
     hero.moving = false;
 });
 
-let fps, fpsInterval, startTime, now, then, elapsed;
+function animate(timestamp){
 
-function startAnimating(fps){
-    //1 Sekunde hat 1000 Millisekunden
-    fpsInterval = 1000/fps;
-    then = Date.now();
-    startTime = then;
-    animate();
-}
 
-function animate(){
+    //Damit die bewegten Objekte keine "spuren" ziehen.
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //audioMusic.play();
+    //Für die Zeitanzeige und Levelberechnung 
+    let deltatime = timestamp - lasttime;
+    lasttime = timestamp;   
+    timeToNext += deltatime;
+    // console.log(deltatime);
     
-    now = Date.now();
-    elapsed = now - then;
-    if(elapsed > fpsInterval) {
-        then = now - (elapsed % fpsInterval);
+    // audioMusic.play();
+    
+    hero.drawHero();
+    hero.moveHero();
+    hero.changeHeroFrame();
+    enemies.forEach(en => en.drawEnemy());
+    enemies.forEach(en => en.moveEnemy());
+    //enemies.forEach(en => en.changeEnemyFrame());
+    settler.forEach(en => en.drawSettler());
+    settler.forEach(en => en.moveSettler());
+    settler.forEach(en => en.changeSettlerFrame());
 
-        //Damit die bewegten Objekte keine "spuren" ziehen.
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-        hero.drawHero();
-        hero.moveHero();
-        hero.changeHeroFrame();
+    explosions.forEach(ex => ex.update());
+    explosions.forEach(ex => ex.draw());
 
-        enemies.forEach(en => en.drawEnemy());
-        enemies.forEach(en => en.moveEnemy());
-        //enemies.forEach(en => en.changeEnemyFrame());
+    enemySettlerCollision.forEach(ex => ex.update());
+    enemySettlerCollision.forEach(ex => ex.draw());
 
-        settler.forEach(en => en.drawSettler());
-        settler.forEach(en => en.moveSettler());
-        //settler.forEach(en => en.changeSettlerFrame());
-
-        explosions.forEach(ex => ex.update());
-        explosions.forEach(ex => ex.draw());
-    };
+    drawScore();
 
     window.requestAnimationFrame(animate);
 };
 
 spawnEnemies();
 spawnSettler();
-startAnimating(60);
+animate();

@@ -25,14 +25,14 @@ class Enemy{
     drawEnemy(){
         drawSprite(
             this.sprite,
-             this.width * this.frameX,
-             this.height * this.frameY,
-             this.width,
-             this.height,
-             this.x,
-             this.y,
-             this.width,
-             this.height);
+            this.width * this.frameX,
+            this.height * this.frameY,
+            this.width,
+            this.height,
+            this.x,
+            this.y,
+            this.width,
+            this.height);
     };
     moveEnemy(){
         if(this.x > 1){
@@ -45,15 +45,12 @@ class Enemy{
             hero.y < this.y + this.height &&
             hero.height + hero.y > this.y
         ){
-            console.log(`BOOM`);
             enemies = enemies.filter(en => en.id_enemy !== this.id_enemy);            
 
             //für jeden getroffenen Gegner wird eine Instanz der Klasse
             //Explosion dem Array explosions hinzugefügt
             explosions.push(new Explosion(this.x, this.y));
-
-            //sound
-            audioDisappearEnemy.play();
+            score++;
         };
     };
 
@@ -73,13 +70,13 @@ let enemies = [];
 function spawnEnemies(){
     setInterval(() => {
         const id = new Date()
-        const y = Math.floor(Math.random() * (1400 - 100) + 100);
+        const y = Math.floor(Math.random() * ((canvas.height - 15) - 100) + 100);
         const x = 1000;
         const width = 32;
         const height = 32;
         const frameX = 0;
         const frameY = 1;
-        const speed = 1;
+        const speed = 2;
         const moving = false;
         const sprite = EnemySprite;
         enemies.push(new Enemy(id, x, y, width, height, frameX, frameY, speed, moving, sprite));

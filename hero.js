@@ -22,7 +22,8 @@ class Hero{
         this.sprite = sprite;
     };
     drawHero(){
-        drawSprite(this.sprite,
+        drawSprite(
+            this.sprite,
             this.width * this.frameX,
             this.height * this.frameY,
             this.width,

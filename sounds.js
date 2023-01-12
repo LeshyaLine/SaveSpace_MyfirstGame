@@ -1,8 +1,6 @@
 const audioMusic = new Audio(`src/sounds/Heroic Demise (New).mp3`);
-const audioDisappearEnemy = new Audio(`src/sounds/erase.wav`);
 const audioSettlerDisappear = new Audio(`src/sounds/power up.ogg`);
-
-
+const SettlerSpeedBuff = new Audio(`src/sounds/SFX_WindWhistleWoosh_Whhhua_Stereo-002.wav`);
 
 
 
