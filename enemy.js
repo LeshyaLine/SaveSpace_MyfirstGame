@@ -70,7 +70,7 @@ let enemies = [];
 function spawnEnemies(){
     setInterval(() => {
         const id = new Date()
-        const y = Math.floor(Math.random() * (1400 - 100) + 100);
+        const y = Math.floor(Math.random() * ((canvas.height - 15) - 100) + 100);
         const x = 1000;
         const width = 32;
         const height = 32;

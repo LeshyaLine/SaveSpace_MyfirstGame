@@ -34,7 +34,11 @@ class Settler{
              this.height);
     };
     moveSettler(){
-        if(this.y > 300){
+        if(this.y < 310 && this.y > 300){
+            this.frameY = 0; 
+            this.y -= this.speed;
+            this.moving = true;
+        }else if(this.y > 300){
             this.y -= this.speed;
             this.moving = true;
         }else{

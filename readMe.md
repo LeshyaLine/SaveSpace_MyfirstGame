@@ -3,13 +3,22 @@ MAYBE TO DO'S:
 -Anzeige, wie viele ins Dorf gekommen sind, wie viele wir getötet haben und wie viele wir verloren haben
 -Animation und Sound bei Kollision/Disappear einbauen: in Klasse direkt
 -Bewegungsanimation von den Siedlern
--Hintergrundmusik https://opengameart.org
+-neuer Hero?
+-Kollision Siedler/Enemy
+-Wenn Sieder im Dorf sind, umdrehen und von vorne zeigen
+
+-Wenn Enemys in der Nähe von Siedlern sind, y anpassen, damit sie mit Siedler kollidieren
+
 -ThemWahl bevor das Game lädt(Mittelalter, Weltraum, Schnee usw.)
 
 -Level?
 -Attacken?
 -Pause-Button?
 -Wann Spiel gewonnen/verloren? endlos?
+-Timestamp anzeigen, wie lange löuft das Spiel.
+-ab 30 Sekunden SpawnIntervall Gegner erhöhen?
+
+-Hintergrundmusik https://opengameart.org
 
 -Sprites per ... einbauen:
 
@@ -26,4 +35,5 @@ MAYBE TO DO'S:
 
 -explosions.length als Highscore? bzw getötete Einheiten oben anzeigen
 
+DONE!!!!
 -GrößenUnterschiede in unterschiedlichen Browsern fixen
