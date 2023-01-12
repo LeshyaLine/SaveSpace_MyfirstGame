@@ -75,7 +75,7 @@ function spawnEnemies(){
         const height = 32;
         const frameX = 0;
         const frameY = 1;
-        const speed = 1;
+        const speed = 2;
         const moving = false;
         const sprite = EnemySprite;
         enemies.push(new Enemy(id, x, y, width, height, frameX, frameY, speed, moving, sprite));

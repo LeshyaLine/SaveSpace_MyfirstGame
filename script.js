@@ -55,7 +55,7 @@ function animate(timestamp){
     timeToNext += deltatime;
     // console.log(deltatime);
     
-    //audioMusic.play();
+    audioMusic.play();
     
     hero.drawHero();
     hero.moveHero();
@@ -65,9 +65,13 @@ function animate(timestamp){
     //enemies.forEach(en => en.changeEnemyFrame());
     settler.forEach(en => en.drawSettler());
     settler.forEach(en => en.moveSettler());
-    //settler.forEach(en => en.changeSettlerFrame());
+    settler.forEach(en => en.changeSettlerFrame());
+    
     explosions.forEach(ex => ex.update());
     explosions.forEach(ex => ex.draw());
+
+    enemySettlerCollision.forEach(ex => ex.update());
+    enemySettlerCollision.forEach(ex => ex.draw());
 
     window.requestAnimationFrame(animate);
 };

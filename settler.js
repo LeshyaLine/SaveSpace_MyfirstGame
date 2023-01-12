@@ -21,6 +21,7 @@ class Settler{
         this.speed = speed;
         this.moving = moving;
         this.sprite = sprite;
+        this.timer = 0;
     };
     drawSettler(){
         drawSprite(
@@ -43,8 +44,7 @@ class Settler{
             this.height + this.y > enemies[i].y
             ){
                 settler = settler.filter(se => se.id_settler != this.id_settler);
-                
-                SettlerDeath.play();
+                enemySettlerCollision.push(new EnemySettlerCollision(this.x, this.y));
             };
         };
 
@@ -57,25 +57,19 @@ class Settler{
             this.y -= this.speed;
             this.moving = true;
         }else{
-            audioSettlerDisappear.play();
             settler.splice(0,1);   
         };
     };
-    //changeSettlerFrame(){
-        // //if(this.frameX === 0 && this.moving){
-        //     this.timmer++;
-        // //}
-        // if(this.timer % 10 === 0){
-        //     this.frameX++;
-        // }
-        // if(this.frameX < 3 && this.moving){
-        //     this.frameX++;
-        // }else this.frameX = 0;
-        // this.timer++;
-        // if(this.timer % 10 === 0){
-        //     this.frameX++
-        // }
-    //}
+    changeSettlerFrame(){
+        this.timer++
+        if(this.timer % 10 === 0){
+            if(this.frameX < 2){
+                this.frameX++;
+            }else{
+                this.frameX = 0;
+            };
+        };
+    };
 };
 
 //Array für die vorhandenen Siedler muss let sein, da ich es später
