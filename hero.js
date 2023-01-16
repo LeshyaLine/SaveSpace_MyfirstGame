@@ -1,4 +1,3 @@
-
 class Hero{
     constructor(
         x,
@@ -62,7 +61,33 @@ class Hero{
 };
 
 const heroSprite = new Image();
-heroSprite.src = `src/hero/Enemy 15-5.png`;
+
+let pickedColor = localStorage.getItem("pickedColor");
+// console.log("hero.js pickedColor", pickedColor)
+
+// // Obj Beispiel: Info Kriegen
+// let obj = JSON.parse(localStorage.getItem("newObj"))
+
+//console.log(pickedColor);
+if(pickedColor == `grey`){
+    heroSprite.src = `src/hero/Enemy 15-1.png`;
+}else if(pickedColor == `blue`){
+    heroSprite.src = `src/hero/Enemy 15-2.png`;
+}else if(pickedColor == `red`){
+    heroSprite.src = `src/hero/Enemy 15-3.png`;
+}else if(pickedColor == `green`){
+    heroSprite.src = `src/hero/Enemy 15-4.png`;
+}else if(pickedColor == `yellow`){
+    heroSprite.src = `src/hero/Enemy 15-5.png`;
+}else if( pickedColor == `purple`){
+    heroSprite.src = `src/hero/Enemy 15-6.png`;
+}else{
+    heroSprite.src = `src/hero/Enemy 15-6.png`;
+};
 
 //Neue SpielerInstanz
 const hero = new Hero(500, 500, 32, 32, 0, 1, 4, false, heroSprite);
+
+
+
+

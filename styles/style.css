@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* layout */
+html {
+  height: 100%;
+  background: #725a5a;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+header {
+  color: white;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+h1 {
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  height: 100%;
+  width: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: 2rem;
+  line-height: 1.2;
+  font-family: "Allerta Stencil", sans-serif;
+}
+
+main div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#colorpicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+label {
+  margin: 10px 0px;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+#heroDisplayForColorPicker {
+  border: black 3px solid;
+}
+
+#canvasgame {
+  width: auto;
+  height: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../src/SaveSpace.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border: 3px black solid;
+  box-shadow: 8px 8px rgb(82, 81, 81);
+}
+
+button {
+  margin: 40px;
+  font-size: 35px;
+  justify-content: center;
+  align-items: center;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background: rgb(201, 125, 54);
+  border: none;
+}
+.custom-btn:before {
+  height: 0%;
+  width: 2px;
+}
+.custom-btn:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Second Chance</h1>
+    </header>
+    <main>
+      <div class="heroColorPicker">
+        <p id="colorPicker">Wähle eine Farbe:</p>
+        <form id="colorpicker">
+          <input type="radio" id="grey" name="color" value="grau" checked />
+          <label for="grey">grau</label>
+          <input type="radio" id="blue" name="color" value="blau" />
+          <label for="blue">blau</label>
+          <input type="radio" id="red" name="color" value="rot" />
+          <label for="red">rot</label>
+          <input type="radio" id="green" name="color" value="grün" />
+          <label for="green">grün</label>
+          <input type="radio" id="yellow" name="color" value="gelb" />
+          <label for="yellow">gelb</label>
+          <input type="radio" id="purple" name="color" value="lila" />
+          <label for="purple">lila</label>
+        </form>
+
+        <form>
+          <button
+            type="submit"
+            id="button"
+            class="custom-btn"
+            formaction="index.html"
+          >
+            Start
+          </button>
+        </form>
+      </div>
+    </main>
+    <script src="home.js"></script>
+    <script src="hero.js"></script>
+  </body>
+</html>

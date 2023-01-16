@@ -1,7 +1,7 @@
 const audioMusic = new Audio(`src/sounds/Heroic Demise (New).mp3`);
 const audioSettlerDisappear = new Audio(`src/sounds/power up.ogg`);
 const SettlerSpeedBuff = new Audio(`src/sounds/SFX_WindWhistleWoosh_Whhhua_Stereo-002.wav`);
-
+//const audioMusic = new Audio(`src/sounds/Gran Batalla.mp3`);
 
 
 //randomsound für Siedler

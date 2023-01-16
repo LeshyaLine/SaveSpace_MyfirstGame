@@ -1,8 +1,25 @@
-const canvas = document.querySelector(`canvas`);
+// const canvas = document.querySelector(`canvas`);
+const canvas = document.getElementById(`canvasgame`);
 const ctx = canvas.getContext(`2d`);
 
 canvas.width = 1000;
 canvas.height = 1000;
+
+//gewählte Farbe aus dem HTML-Document in selected gespeichert
+// const colorgepickt = document.querySelectorAll(`input[name="color"]`);
+// let result = document.getElementById(`selectedColor`);
+// let findSelected = () => {
+//     let selected = document.querySelector(`input[name="color"]:checked`).value;
+//     //result.textContent = `gewählte Farbe: ${selected}`;
+
+// };
+// colorgepickt.forEach(cl => {
+//     cl.addEventListener("change", findSelected);
+// });
+
+// findSelected();
+
+// console.log(selected);
 
 //Array, in dem die gedrückten Keys gespeichert werden.
 //werden gelöscht, sobald die Taste weider losgelassen wird
@@ -80,8 +97,8 @@ function animate(timestamp){
     lasttime = timestamp;   
     timeToNext += deltatime;
     
-    // audioMusic.play();
-    
+    audioMusic.play();
+
     hero.drawHero();
     hero.moveHero();
     hero.changeHeroFrame();
@@ -109,6 +126,8 @@ function animate(timestamp){
     window.requestAnimationFrame(animate);
 };
 
+// spawnHero();
 spawnEnemies();
 spawnSettler();
 animate();
+
