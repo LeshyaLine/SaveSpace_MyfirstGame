@@ -72,7 +72,7 @@ class Settler{
             this.moving = true;
         }else{
             settlerSaves++;
-            settler.splice(0,1);   
+            settler = settler.filter(en => en.id_settler !== this.id_settler);  
         };
     };
     changeSettlerFrame(){
