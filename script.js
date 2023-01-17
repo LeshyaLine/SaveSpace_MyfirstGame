@@ -76,7 +76,7 @@ window.addEventListener(`keyup`, function(e){
                     //TIMER//                       ||
 ////////////////////////////////////////////////////||
 
-const startMinutes = 15;
+const startMinutes = 20;
 let time = startMinutes * 60;
 
 function updateTimer() {
@@ -89,7 +89,7 @@ function updateTimer() {
 };
 
 ////////////////////////////////////////////////////||
-                    //ANIMATE-FUNKTION//            ||
+             //ANIMATE-FUNKTION//                   ||
 ////////////////////////////////////////////////////||
 
 function animate(){    
@@ -98,7 +98,7 @@ function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
-    if(settlerDeaths >= 2){
+    if(settlerDeaths >= 10){
         updateTimer();
         spiritWorld();                        
         SpiritMusic.play();
