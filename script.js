@@ -80,10 +80,9 @@ const startMinutes = 20;
 let time = startMinutes * 60;
 
 function updateTimer() {
-
     const timer = document.getElementById(`countdown`);
     const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+    //let seconds = time % 60;
     timer.innerHTML = `${minutes}`;
     time--;
 };
@@ -98,7 +97,7 @@ function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
-    if(settlerDeaths >= 10){
+    if(settlerDeaths >= 10){        
         updateTimer();
         spiritWorld();                        
         SpiritMusic.play();
