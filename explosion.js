@@ -17,7 +17,11 @@ class Explosion{
         this.sound.src = `src/sounds/erase.wav`;
     };
     update(){
-        if(this.frame === 0) this.sound.play();
+        if(this.frame === 0)
+        {
+            this.sound.play();
+            this.sound.volume = 1;
+        } 
         this.timer++;
         if(this.timer % 10 === 0){
             this.frame++;

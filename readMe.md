@@ -1,14 +1,16 @@
+-Musik, Sounds und SpriteSheets von: https://opengameart.org
+-Maps erstellt mit https://inkarnate.com/explore/
+
 MAYBE TO DO'S:
--Farbwahl des Charakters
 
--neuer Hero?
+-neuer Hero? (Eulenbär oder einer mit AttackAnimation)
 
--Wenn Enemys in der Nähe von Siedlern sind, y anpassen, damit sie mit Siedler kollidieren
+-Wenn Enemys in der Nähe von Siedlern sind, y anpassen, damit sie mit Siedler kollidieren -> macht das spiel sehr viel schwierriger, erstmal weglassen!
 
 -Wenn man verloren (10 siedler getötet) dann grauer Bildschirm und Aufgabe
 -z.b. die 10 toten Siedler aus der Geisterwelt zurückholen durch einsammeln
 -andere Musik und Bildschirm grau, Gegner und Siedler trotzdem da. keine interaktion
--Berühren der Gegner = komplett verloren
+-Berühren der Gegner = komplett verloren?
 
 -ThemeWahl bevor das Game lädt(Mittelalter, Weltraum, Schnee usw.)
 
@@ -19,8 +21,6 @@ MAYBE TO DO'S:
 -Wann Spiel gewonnen/verloren? endlos?
 -Timestamp anzeigen, wie lange löuft das Spiel.
 -ab 30 Sekunden SpawnIntervall Gegner erhöhen?
-
--Hintergrundmusik https://opengameart.org
 
 -Sprites per ... einbauen:
 
@@ -58,3 +58,6 @@ DONE!!!!
 -SpeedBuff: wenn Hero Siedler berührt, laufen sie schneller und Sound kommt
 
 -Gegner verschwinden am Gebirge, damit sie nicht durchs Dorf laufen
+
+16.01.2023
+-Farbwahl des Charakters

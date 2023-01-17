@@ -62,8 +62,8 @@ class Hero{
 
 const heroSprite = new Image();
 
+//die gepickte Color aus dem LocalStorage ziehen
 let pickedColor = localStorage.getItem("pickedColor");
-// console.log("hero.js pickedColor", pickedColor)
 
 // // Obj Beispiel: Info Kriegen
 // let obj = JSON.parse(localStorage.getItem("newObj"))

@@ -1,28 +1,15 @@
 // const canvas = document.querySelector(`canvas`);
 const canvas = document.getElementById(`canvasgame`);
 const ctx = canvas.getContext(`2d`);
-
 canvas.width = 1000;
 canvas.height = 1000;
 
-//gewählte Farbe aus dem HTML-Document in selected gespeichert
-// const colorgepickt = document.querySelectorAll(`input[name="color"]`);
-// let result = document.getElementById(`selectedColor`);
-// let findSelected = () => {
-//     let selected = document.querySelector(`input[name="color"]:checked`).value;
-//     //result.textContent = `gewählte Farbe: ${selected}`;
+const drawBackground = () => {
+    const img = new Image();
+    img.src = `src/SaveSpace.jpg`;
+    ctx.drawImage(img, 0, 0, 1000, 1000);
+};
 
-// };
-// colorgepickt.forEach(cl => {
-//     cl.addEventListener("change", findSelected);
-// });
-
-// findSelected();
-
-// console.log(selected);
-
-//Array, in dem die gedrückten Keys gespeichert werden.
-//werden gelöscht, sobald die Taste weider losgelassen wird
 const keys = [];
 
 //zum Speichern des Timestamps in der animate()
@@ -39,9 +26,6 @@ let settlerDeaths = 0;
 //gerettete Siedler
 let settlerSaves = 0;
 
-const background = new Image();
-
-
 const drawScore = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
@@ -49,12 +33,13 @@ const drawScore = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `white`;
     ctx.fillText(`Score: ` + score, 805, 122);
-}
+};
 
 const drawSettlerDeaths = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
-    ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 10, 100);    ctx.font = `40px serif`;
+    ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 10, 100); 
+    ctx.font = `40px serif`;
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `white`;
     ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 15, 102);
@@ -86,48 +71,81 @@ window.addEventListener(`keyup`, function(e){
     hero.moving = false;
 });
 
-function animate(timestamp){
 
+////////////////////////////////////////////////////||
+                    //TIMER//                       ||
+////////////////////////////////////////////////////||
+
+let spiritMode = false;
+const startMinutes = 15;
+let time = startMinutes * 60;
+
+function updateTimer() {
+
+    const timer = document.getElementById(`countdown`);
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    //seconds = seconds < 10 ? `0` + seconds : seconds;
+    timer.innerHTML = `${minutes}`;
+    time--;
+};
+
+////////////////////////////////////////////////////||
+                    //ANIMATE-FUNKTION//            ||
+////////////////////////////////////////////////////||
+
+function animate(){
+    
 
     //Damit die bewegten Objekte keine "spuren" ziehen.
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //Für die Zeitanzeige und Levelberechnung 
-    let deltatime = timestamp - lasttime;
-    lasttime = timestamp;   
-    timeToNext += deltatime;
+
+    if(settlerDeaths >= 2){
+        updateTimer();
+        spiritWorld();                        
+        SpiritMusic.play();
+        audioMusic.pause();
+    }else{
+        drawBackground();
+        audioMusic.play();
+
+        //function für die getöteten Gegner
+        drawScore();
+
+        //function für die getöteten Siedler
+        drawSettlerDeaths();
+
+        //function fir die geretteten Siedler
+        drawSettlerSaves();
+
+        enemies.forEach(en => en.drawEnemy());
+        enemies.forEach(en => en.moveEnemy());
+        //enemies.forEach(en => en.changeEnemyFrame());
+        settler.forEach(en => en.drawSettler());
+        settler.forEach(en => en.moveSettler());
+        settler.forEach(en => en.changeSettlerFrame());
     
-    audioMusic.play();
+        explosions.forEach(ex => ex.update());
+        explosions.forEach(ex => ex.draw());
+    
+        enemySettlerCollision.forEach(ex => ex.update());
+        enemySettlerCollision.forEach(ex => ex.draw());
+    };
+    
 
     hero.drawHero();
     hero.moveHero();
     hero.changeHeroFrame();
-    enemies.forEach(en => en.drawEnemy());
-    enemies.forEach(en => en.moveEnemy());
-    //enemies.forEach(en => en.changeEnemyFrame());
-    settler.forEach(en => en.drawSettler());
-    settler.forEach(en => en.moveSettler());
-    settler.forEach(en => en.changeSettlerFrame());
 
-    explosions.forEach(ex => ex.update());
-    explosions.forEach(ex => ex.draw());
-
-    enemySettlerCollision.forEach(ex => ex.update());
-    enemySettlerCollision.forEach(ex => ex.draw());
-
-    //function für die getöteten Gegner
-    drawScore();
-    //function für die getöteten Spieler
-    drawSettlerDeaths();
-
-    //function fir die geretteten Siedler
-    drawSettlerSaves();
 
     window.requestAnimationFrame(animate);
 };
 
-// spawnHero();
 spawnEnemies();
 spawnSettler();
+
 animate();
+
+
 

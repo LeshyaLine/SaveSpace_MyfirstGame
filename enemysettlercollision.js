@@ -28,6 +28,7 @@ class EnemySettlerCollision{
             };
         };
         if(this. frameY === 0) this.sound.play();
+        this.sound.volume = 0.5;
     };
     draw(){
         ctx.drawImage(
