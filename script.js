@@ -76,7 +76,6 @@ window.addEventListener(`keyup`, function(e){
                     //TIMER//                       ||
 ////////////////////////////////////////////////////||
 
-let spiritMode = false;
 const startMinutes = 15;
 let time = startMinutes * 60;
 
@@ -85,7 +84,6 @@ function updateTimer() {
     const timer = document.getElementById(`countdown`);
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
-    //seconds = seconds < 10 ? `0` + seconds : seconds;
     timer.innerHTML = `${minutes}`;
     time--;
 };
@@ -94,10 +92,9 @@ function updateTimer() {
                     //ANIMATE-FUNKTION//            ||
 ////////////////////////////////////////////////////||
 
-function animate(){
-    
+function animate(){    
 
-    //Damit die bewegten Objekte keine "spuren" ziehen.
+    //Damit die bewegten Objekte keine "spuren" ziehen wird das Canvas gecleart
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 

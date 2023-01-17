@@ -1,13 +1,12 @@
--Musik, Sounds und SpriteSheets von: https://opengameart.org
--Maps erstellt mit https://inkarnate.com/explore/
-
-MAYBE TO DO'S:
+////////////////////////////////////////////////////||
+//ToDo´S ( MAYBE)
+////////////////////////////////////////////////////||
 
 -neuer Hero? (Eulenbär oder einer mit AttackAnimation)
 
 -Wenn Enemys in der Nähe von Siedlern sind, y anpassen, damit sie mit Siedler kollidieren -> macht das spiel sehr viel schwierriger, erstmal weglassen!
 
--Wenn man verloren (10 siedler getötet) dann grauer Bildschirm und Aufgabe
+-Wenn man verloren (10 siedler getötet) dann grauer Bildschirm und Aufgabe (SpiritModus)
 -z.b. die 10 toten Siedler aus der Geisterwelt zurückholen durch einsammeln
 -andere Musik und Bildschirm grau, Gegner und Siedler trotzdem da. keine interaktion
 -Berühren der Gegner = komplett verloren?
@@ -19,7 +18,6 @@ MAYBE TO DO'S:
 -Attacken?
 -Pause-Button?
 -Wann Spiel gewonnen/verloren? endlos?
--Timestamp anzeigen, wie lange löuft das Spiel.
 -ab 30 Sekunden SpawnIntervall Gegner erhöhen?
 
 -Sprites per ... einbauen:
@@ -37,7 +35,10 @@ MAYBE TO DO'S:
 
 -Explosion löschen, wenn Frames alle durchlaufen sind - Performance
 
-DONE!!!!
+////////////////////////////////////////////////////||
+//DONE!!!
+////////////////////////////////////////////////////||
+
 11.01.2023:
 -GrößenUnterschiede in unterschiedlichen Browsern fixen
 -bei Kollision Enemy aus array löschen
@@ -61,3 +62,13 @@ DONE!!!!
 
 16.01.2023
 -Farbwahl des Charakters
+
+17.01.2023
+-Timer im GeisterModus eingebaut
+
+////////////////////////////////////////////////////||
+//SOURCE & LINKS
+////////////////////////////////////////////////////||
+
+-Musik, Sounds und SpriteSheets von: https://opengameart.org
+-Maps erstellt mit https://inkarnate.com/explore/
