@@ -1,4 +1,7 @@
-// const canvas = document.querySelector(`canvas`);
+////////////////////////////////////////////////////||
+                 //MAIN-SCRIPT//                    ||
+////////////////////////////////////////////////////||
+
 const canvas = document.getElementById(`canvasgame`);
 const ctx = canvas.getContext(`2d`);
 canvas.width = 1000;
@@ -10,12 +13,8 @@ const drawBackground = () => {
     ctx.drawImage(img, 0, 0, 1000, 1000);
 };
 
+//Array für gedrückte Tasten auf der Tastatur
 const keys = [];
-
-//zum Speichern des Timestamps in der animate()
-let lasttime = 0;
-let timeToNext = 0;
-let SpawnIntervall = 500;
 
 // getötete Gegner
 let score = 0;
@@ -26,6 +25,7 @@ let settlerDeaths = 0;
 //gerettete Siedler
 let settlerSaves = 0;
 
+//Score wird aufs Canvas "gemalt"
 const drawScore = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
@@ -35,6 +35,7 @@ const drawScore = () => {
     ctx.fillText(`Score: ` + score, 805, 122);
 };
 
+//getötete Siedler werden aufs Canvas "gemalt"
 const drawSettlerDeaths = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
@@ -45,15 +46,17 @@ const drawSettlerDeaths = () => {
     ctx.fillText(`verlorene Siedler: ` + settlerDeaths, 15, 102);
 };
 
+//gerettete Siedler werden aufs Canvas "gemalt"
 const drawSettlerSaves = () => {
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `black`;
-    ctx.fillText(`gerettete Siedler: ` + settlerSaves, 10, 50);    ctx.font = `40px serif`;
+    ctx.fillText(`gerettete Siedler: ` + settlerSaves, 10, 50); 
     ctx.font = `bold 40px serif`;
     ctx.fillStyle = `white`;
     ctx.fillText(`gerettete Siedler: ` + settlerSaves, 15, 52);
 };
 
+//allgemeine Sprite Draw Function
 function drawSprite(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(id_enemy, img, sX, sY, sW, sH, dX, dY, dW, dH);
 };
@@ -76,7 +79,7 @@ window.addEventListener(`keyup`, function(e){
                     //TIMER//                       ||
 ////////////////////////////////////////////////////||
 
-const startMinutes = 20;
+const startMinutes = 30;
 let time = startMinutes * 60;
 
 function updateTimer() {
@@ -89,7 +92,7 @@ function updateTimer() {
 };
 
 ////////////////////////////////////////////////////||
-             //ANIMATE-FUNKTION//                   ||
+                    //ANIMATE-FUNKTION//            ||
 ////////////////////////////////////////////////////||
 
 function animate(){    
@@ -97,7 +100,7 @@ function animate(){
     //Damit die bewegten Objekte keine "spuren" ziehen wird das Canvas gecleart
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-
+    //Wenn mehr als 10 Spieler tot, dann SpiritMode aufrufen
     if(settlerDeaths >= 10){
         updateTimer();
         spiritWorld();                        
@@ -116,21 +119,25 @@ function animate(){
         //function fir die geretteten Siedler
         drawSettlerSaves();
 
+        //jeder vorhandene Gegner wird gemalt und bewegt
         enemies.forEach(en => en.drawEnemy());
         enemies.forEach(en => en.moveEnemy());
-        //enemies.forEach(en => en.changeEnemyFrame());
+  
+        //jeder vorhandene Siedler wird gemalt und bewegt und Frames geändert
         settler.forEach(en => en.drawSettler());
         settler.forEach(en => en.moveSettler());
         settler.forEach(en => en.changeSettlerFrame());
     
+        //jede vorhandene Explosion wird gemalt und geupdatet
         explosions.forEach(ex => ex.update());
         explosions.forEach(ex => ex.draw());
     
+        //jede vorhandene Explosion für Gegner wird gemalt und geupdatet
         enemySettlerCollision.forEach(ex => ex.update());
         enemySettlerCollision.forEach(ex => ex.draw());
     };
     
-
+    //der Spieler wir gemalt, bewegt und das Frame wird aktualisiert
     hero.drawHero();
     hero.moveHero();
     hero.changeHeroFrame();
@@ -139,6 +146,7 @@ function animate(){
     window.requestAnimationFrame(animate);
 };
 
+//Gegner und Siedler werden erschaffen und im Array gespeichert. 
 spawnEnemies();
 spawnSettler();
 

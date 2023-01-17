@@ -45,9 +45,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* background-image: url(../src/SaveSpace.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat; */
   border: 3px #333 solid;
   box-shadow: 8px 8px #333;
 }

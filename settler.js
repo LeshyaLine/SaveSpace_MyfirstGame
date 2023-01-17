@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+              //SETTLER-CLASS                       ||
+////////////////////////////////////////////////////||
+
 class Settler{
     constructor(
         id_settler,
@@ -55,8 +59,7 @@ class Settler{
         ){
             this.speed = 3;
             SettlerSpeedBuff.play();
-        }
-        
+        };        
         };
 
 
@@ -225,6 +228,10 @@ const settlerSprites = [
     "src/settler/Male 17-4.png", 
     "src/settler/Male 18-1.png"
 ];
+
+////////////////////////////////////////////////////||
+                //SETTLER-SPAWN-FUNCTION//          ||
+////////////////////////////////////////////////////||
 
 function spawnSettler (){
     setInterval(() => {

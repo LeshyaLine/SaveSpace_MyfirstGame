@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+                 //ENEMY-CLASS//                    ||
+////////////////////////////////////////////////////||
+
 class Enemy{
     constructor(
         id_enemy,
@@ -47,7 +51,7 @@ class Enemy{
         };
 
         if(
-            hero.x < this.x + this.width &&
+            hero.x < this.x + this.width && 
             hero.x + hero.width > this.x &&
             hero.y < this.y + this.height &&
             hero.height + hero.y > this.y
@@ -73,6 +77,10 @@ EnemySprite.src = `src/enemy/Enemy 17-5.png`;
 //Array für die vorhandenen Gegner muss let sein, da wir es überschreiben
 //in MoveEnemy
 let enemies = [];
+
+////////////////////////////////////////////////////||
+                //ENEMY-SPAWN-FUNCTION//            ||
+////////////////////////////////////////////////////||
 
 function spawnEnemies(){
     setInterval(() => {

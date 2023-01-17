@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+                 //ENEMY-PLAYER-COLLISION//         ||
+////////////////////////////////////////////////////||
+
 class Explosion{
     constructor(
         x,
@@ -41,6 +45,7 @@ class Explosion{
              );
     };
 };
+
 
 //Array, in dem die gerade aktiven Explosionen gespeichert werden
 const explosions = [];

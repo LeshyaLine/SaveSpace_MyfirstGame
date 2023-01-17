@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+                //SPIRIT-WORLD//                    ||
+////////////////////////////////////////////////////||
+
 const spiritWorld = () => {
     const img2 = new Image();
     img2.src = `src/SpiritWorld.jpg`;

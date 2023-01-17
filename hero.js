@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+                //HERO-CLASS//                      ||
+////////////////////////////////////////////////////||
+
 class Hero{
     constructor(
         x,
@@ -65,10 +69,6 @@ const heroSprite = new Image();
 //die gepickte Color aus dem LocalStorage ziehen
 let pickedColor = localStorage.getItem("pickedColor");
 
-// // Obj Beispiel: Info Kriegen
-// let obj = JSON.parse(localStorage.getItem("newObj"))
-
-//console.log(pickedColor);
 if(pickedColor == `grey`){
     heroSprite.src = `src/hero/Enemy 15-1.png`;
 }else if(pickedColor == `blue`){
@@ -85,7 +85,11 @@ if(pickedColor == `grey`){
     heroSprite.src = `src/hero/Enemy 15-6.png`;
 };
 
-//Neue SpielerInstanz
+////////////////////////////////////////////////////||
+                //HERO-SPAWN-FUNCTION//             ||
+////////////////////////////////////////////////////||
+
+//Neue SpielerInstanz erstellen
 const hero = new Hero(500, 500, 32, 32, 0, 1, 4, false, heroSprite);
 
 

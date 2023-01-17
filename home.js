@@ -1,4 +1,6 @@
-
+////////////////////////////////////////////////////||
+                //COLORPICKER//                     ||
+////////////////////////////////////////////////////||
 
 
 document.getElementById("button").addEventListener("click", colorPicker);
@@ -26,7 +28,6 @@ function colorPicker(){
         console.log(`no Color picked, default grey`);
         pickedColor = `grey`;
     };
-
 
     //localStorage.setItem("name", value)
     localStorage.setItem("pickedColor", pickedColor)

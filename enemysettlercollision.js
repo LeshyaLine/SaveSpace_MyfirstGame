@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////||
+          //ENEMY-SETTLER-COLLISION-CLASS//         ||
+////////////////////////////////////////////////////||
+
 class EnemySettlerCollision{
     constructor(
         x,
@@ -45,4 +49,5 @@ class EnemySettlerCollision{
     };
 };
 
+//Arraydeklaration für die vorhandenen Kollisionen
 const enemySettlerCollision = [];
